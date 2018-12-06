@@ -1,0 +1,19 @@
+<h1>Authorization</h1>
+<div  class="error"><%= flash[:danger] %></div>
+<% flash[:danger] = nil %>
+<%= form_tag url_for(controller: 'session', action: 'login'), method: 'get' do %>
+  <div class="field">
+    <%= label_tag :login %>
+    <%= text_field_tag :login, nil, required: true %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password, nil, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag 'Enter' %>
+  </div>
+<% end %>
+<%= link_to 'Register new user', new_user_path %>

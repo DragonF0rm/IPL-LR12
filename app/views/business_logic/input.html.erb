@@ -1,0 +1,9 @@
+<%= form_tag url_for(controller: 'business_logic', action: 'output'), method: 'get', id: 'input_form' do %>
+
+  <h3><%= label_tag :max, 'Сколько чисел рассматривать?' %></h3>
+  <%= number_field_tag :max, nil, required: true, id: 'input_field' %>
+  <br>
+  <%= submit_tag 'Проверить гипотезу Симона о факториале' %>
+
+<% end %>
+<%= link_to 'Logout', logout_path %>
