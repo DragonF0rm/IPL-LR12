@@ -4,7 +4,7 @@ class BusinessLogicController < ApplicationController
   before_action :parse_params, only: :output
   before_action :require_login
 
-  def index; end
+  def input; end
 
   def output
     if !@input_is_ok
@@ -48,7 +48,7 @@ class BusinessLogicController < ApplicationController
   end
 
   def require_login
-    if session[:current_user_id].nil?
+    unless User.find_by_id (session[:current_user_id])
       flash[:danger] = "You have to be authorized"
       redirect_to auth_path
     end

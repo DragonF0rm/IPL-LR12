@@ -12,7 +12,7 @@ class SessionController < ApplicationController
   end
 
   def logout
-    reset_session
-    redirect_to session_auth_path
+    session[:current_user_id] = nil
+    redirect_to auth_path
   end
 end
